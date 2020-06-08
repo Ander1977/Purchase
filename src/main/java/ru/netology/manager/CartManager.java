@@ -1,4 +1,4 @@
-package ru.netology.domain.manager;
+package ru.netology.manager;
 
 import ru.netology.domain.PurchaseItem;
 
