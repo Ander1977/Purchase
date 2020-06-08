@@ -94,7 +94,7 @@ class MovieManagerTest {
     }
 
     @Test
-    void showSpecificNumberFilms() {
+    void shouldUseNoArgsConstructor() {
         movieManager.setCount(5);
         Movie one = new Movie(1, "Время первых", "История", "https://", "https://");
         Movie two = new Movie(2, "О чём говорят мужчины", "Фильм", "https://", "https://");

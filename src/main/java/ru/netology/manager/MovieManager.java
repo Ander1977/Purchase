@@ -1,8 +1,10 @@
 package ru.netology.manager;
 
+import lombok.NoArgsConstructor;
 import lombok.Data;
 import ru.netology.domain.Movie;
 
+@NoArgsConstructor
 @Data
 public class MovieManager {
     private Movie[] movies = new Movie[0];
@@ -21,14 +23,14 @@ public class MovieManager {
 
     public Movie[] getAll() {
         Movie[] result = new Movie[0];
-        if (count == 0 & movies.length < 11) {
+        if (count == 0 && movies.length < 10) {
             result = new Movie[movies.length];
             for (int i = 0; i < result.length; i++) {
                 int index = movies.length - i - 1;
                 result[i] = movies[index];
             }
         }
-        if (count == 0 & movies.length >= 11) {
+        if (count == 0 && movies.length >= 10) {
             result = new Movie[10];
             for (int i = 0; i < result.length; i++) {
                 int index = movies.length - i - 1;
