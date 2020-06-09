@@ -12,5 +12,4 @@ import lombok.Data;
         private String genre;
         private String url;
         private String urlImage;
-
 }

@@ -13,7 +13,6 @@ class MovieManagerTest {
         movieManager.getAll();
         Movie[] expected = new Movie[0];
         Movie[] actual = movieManager.getAll();
-
         assertArrayEquals(expected, actual);
     }
 
@@ -24,7 +23,6 @@ class MovieManagerTest {
         movieManager.getAll();
         Movie[] expected = new Movie[]{one};
         Movie[] actual = movieManager.getAll();
-
         assertArrayEquals(expected, actual);
     }
 
@@ -50,12 +48,9 @@ class MovieManagerTest {
         movieManager.addMovie(eight);
         movieManager.addMovie(nine);
         movieManager.addMovie(then);
-
         movieManager.getAll();
-
         Movie[] actual = movieManager.getAll();
         Movie[] expected = new Movie[]{then, nine, eight, seven, six, five, four, three, two, one};
-
         assertArrayEquals(expected, actual);
     }
 
@@ -84,12 +79,9 @@ class MovieManagerTest {
         movieManager.addMovie(nine);
         movieManager.addMovie(then);
         movieManager.addMovie(eleven);
-
         movieManager.getAll();
-
         Movie[] actual = movieManager.getAll();
         Movie[] expected = new Movie[]{eleven, then, nine, eight, seven, six, five, four, three, two};
-
         assertArrayEquals(expected, actual);
     }
 
@@ -118,12 +110,9 @@ class MovieManagerTest {
         movieManager.addMovie(nine);
         movieManager.addMovie(then);
         movieManager.addMovie(eleven);
-
         movieManager.getAll();
-
         Movie[] actual = movieManager.getAll();
         Movie[] expected = new Movie[]{eleven, then, nine, eight, seven};
-
         assertArrayEquals(expected, actual);
     }
 }
