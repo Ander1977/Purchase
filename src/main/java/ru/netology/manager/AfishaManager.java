@@ -29,8 +29,11 @@ public class AfishaManager {
     }
 
     public void removeAll() {
+
         repository.removeAll();
     }
-
+    public void findById() {
+        repository.findById(0);
+    }
 
 }
