@@ -4,7 +4,9 @@ import ru.netology.domain.Movie;
 
 public class AfishaRepository {
     private Movie[] movies = new Movie[0];
-    private int id;
+
+    public AfishaRepository() {
+    }
 
     public void save(Movie movie) {
         int length = movies.length + 1;
@@ -21,23 +23,29 @@ public class AfishaRepository {
         int length = movies.length - 1;
         Movie[] tmp = new Movie[length];
         int index = 0;
+        for(Movie movie : movies) {
+            if(movie.getId() != id) {
+                tmp[index] = movie;
+                index++;
+            }
+        }
+        movies = tmp;
     }
 
     public void removeAll() {
-        Movie[] tmp = new Movie[0];
+        movies = new Movie[0];
     }
 
     public Movie[] findAll() {
         return movies;
     }
 
-    public Movie findById(int id) {
+    public void findById(int id) {
         for (Movie movie : movies) {
             if (movie.getId() == id) {
-                return movie;
+                return;
             }
         }
-        return null;
     }
 
 

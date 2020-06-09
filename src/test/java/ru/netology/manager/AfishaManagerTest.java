@@ -43,7 +43,7 @@ class AfishaManagerTest {
 
     @Test
     void shouldFindById() {
-        int idToFind = 3;
+        int id = 3;
         Movie[] returned = new Movie[]{third};
         doReturn(returned).when(repository).findAll();
         manager.findById();
@@ -61,7 +61,5 @@ class AfishaManagerTest {
         Movie[] expected = new Movie[]{};
         assertArrayEquals(expected, actual);
     }
-
-
 
 }
