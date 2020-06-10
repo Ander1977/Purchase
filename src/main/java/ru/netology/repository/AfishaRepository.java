@@ -23,8 +23,8 @@ public class AfishaRepository {
         int length = movies.length - 1;
         Movie[] tmp = new Movie[length];
         int index = 0;
-        for(Movie movie : movies) {
-            if(movie.getId() != id) {
+        for (Movie movie : movies) {
+            if (movie.getId() != id) {
                 tmp[index] = movie;
                 index++;
             }
@@ -40,13 +40,13 @@ public class AfishaRepository {
         return movies;
     }
 
-    public void findById(int id) {
+    public Movie findById(int id) {
         for (Movie movie : movies) {
             if (movie.getId() == id) {
-                return;
+                return movie;
             }
         }
+        return null;
     }
-
 
 }

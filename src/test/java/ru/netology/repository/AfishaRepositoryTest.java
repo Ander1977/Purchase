@@ -28,10 +28,10 @@ class AfishaRepositoryTest {
 
     @Test
     void shouldRemoveById() {
-        int idToRemove = 1;
+        int idToRemove = 2;
         repository.removeById(idToRemove);
         Movie[] actual = repository.findAll();
-        Movie[] expected = new Movie[]{second, third};
+        Movie[] expected = new Movie[]{first, third};
         assertArrayEquals(expected, actual);
     }
 
@@ -51,5 +51,16 @@ class AfishaRepositoryTest {
         assertArrayEquals(expected, actual);
     }
 
+    @Test
+    void shouldFindById() {
+        int id = 2;
+        repository.findById(id);
+        Movie[] actual = repository.findAll();
+        Movie[] expected = new Movie[]{second};
+        assertArrayEquals(expected, actual);
+    }
+
 
 }
+
+

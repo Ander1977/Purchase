@@ -15,4 +15,5 @@ import lombok.NoArgsConstructor;
         private String url;
         private String urlImage;
 
+
 }
