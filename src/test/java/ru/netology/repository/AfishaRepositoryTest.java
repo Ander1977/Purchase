@@ -11,18 +11,20 @@ class AfishaRepositoryTest {
     Movie first = new  Movie(1, "Герой", "Боевик", "https://", "https://");
     Movie second = new Movie(2, "Горько", "Комедия", "https://", "https://");
     Movie third = new Movie(3, "Ну-Погоди!", "Мультфильм", "https://", "https://");
+    Movie four = new Movie(4, "Армагедон", "Фантастика", "https://", "https://");
 
     @BeforeEach
     public void setUp(){
         repository.save(first);
         repository.save(second);
         repository.save(third);
+        repository.save(four);
     }
 
     @Test
     void shouldSave() {
         Movie[] actual = repository.findAll();
-        Movie[] expected = new Movie[]{first, second ,third};
+        Movie[] expected = new Movie[]{first, second ,third,four};
         assertArrayEquals(expected, actual);
     }
 
@@ -31,7 +33,7 @@ class AfishaRepositoryTest {
         int idToRemove = 2;
         repository.removeById(idToRemove);
         Movie[] actual = repository.findAll();
-        Movie[] expected = new Movie[]{first, third};
+        Movie[] expected = new Movie[]{first, third, four};
         assertArrayEquals(expected, actual);
     }
 
@@ -39,7 +41,7 @@ class AfishaRepositoryTest {
     void shouldFindAll() {
         repository.findAll();
         Movie[] actual = repository.findAll();
-        Movie[] expected = new Movie[]{first, second, third};
+        Movie[] expected = new Movie[]{first, second, third, four};
         assertArrayEquals(expected, actual);
     }
 
@@ -53,14 +55,12 @@ class AfishaRepositoryTest {
 
     @Test
     void shouldFindById() {
-        int id = 2;
-        repository.findById(id);
-        Movie[] actual = repository.findAll();
-        Movie[] expected = new Movie[]{second};
-        assertArrayEquals(expected, actual);
+        int idToFind = 2;
+        repository.findById(idToFind);
+        Movie actual = repository.findById(idToFind);
+        Movie expected = second;
+        assertEquals(expected, actual);
     }
-
-
 }
 
 

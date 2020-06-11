@@ -24,7 +24,7 @@ class AfishaManagerTest {
     Movie first = new  Movie(1, "Герой", "Боевик", "https://", "https://");
     Movie second = new Movie(2, "Горько", "Комедия", "https://", "https://");
     Movie third = new Movie(3, "Ну-Погоди!", "Мультфильм", "https://", "https://");
-    Movie four = new Movie(4, "Армагедон", "Фантастика", "https://", "httrps://");
+    Movie four = new Movie(4, "Армагедон", "Фантастика", "https://", "https://");
 
     @BeforeEach
     public void add () {

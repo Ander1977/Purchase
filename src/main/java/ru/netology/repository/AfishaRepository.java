@@ -19,6 +19,15 @@ public class AfishaRepository {
         movies = tmp;
     }
 
+    public Movie findById(int id) {
+        for (Movie movie : movies) {
+            if (movie.getId() == id) {
+                return movie;
+            }
+        }
+        return null;
+    }
+
     public void removeById(int id) {
         int length = movies.length - 1;
         Movie[] tmp = new Movie[length];
@@ -38,15 +47,6 @@ public class AfishaRepository {
 
     public Movie[] findAll() {
         return movies;
-    }
-
-    public Movie findById(int id) {
-        for (Movie movie : movies) {
-            if (movie.getId() == id) {
-                return movie;
-            }
-        }
-        return null;
     }
 
 }
