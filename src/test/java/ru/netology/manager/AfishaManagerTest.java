@@ -21,6 +21,7 @@ class AfishaManagerTest {
     AfishaRepository repository;
     @InjectMocks
     AfishaManager manager;
+
     Movie first = new  Movie(1, "Герой", "Боевик", "https://", "https://");
     Movie second = new Movie(2, "Горько", "Комедия", "https://", "https://");
     Movie third = new Movie(3, "Ну-Погоди!", "Мультфильм", "https://", "https://");
@@ -36,20 +37,26 @@ class AfishaManagerTest {
 
     @Test
     void shouldRemoveAll() {
-        Movie[] tmp = new Movie[0];
+        Movie[] returned = new Movie[0];
+        doReturn(returned).when(repository).findAll();
         manager.removeAll();
+        Movie[] actual = manager.getAll();
+        Movie[] expected = new Movie[0];
+        assertArrayEquals(expected, actual);
         verify(repository).removeAll();
+        verify(repository).findAll();
     }
 
     @Test
     void shouldFindById() {
-        int id = 4;
+        int idToFind = 4;
         Movie[] returned = new Movie[]{four};
         doReturn(returned).when(repository).findAll();
-        manager.findById();
+        manager.findById(idToFind);
         Movie[] actual = manager.getAll();
         Movie[] expected = new Movie[]{four};
         assertArrayEquals(expected, actual);
+        verify(repository).findById(idToFind);
     }
 
     @Test
@@ -60,6 +67,17 @@ class AfishaManagerTest {
         Movie[] actual = manager.getAll();
         Movie[] expected = new Movie[]{};
         assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void addMovie() {
+        Movie[] returned = new Movie[]{first};
+        doReturn(returned).when(repository).findAll();
+        manager.add(first);
+        Movie[] expected = new Movie[]{first};
+        Movie[] actual = manager.getAll();
+        assertArrayEquals(expected, actual);
+        verify(repository).findAll();
     }
 
 }
