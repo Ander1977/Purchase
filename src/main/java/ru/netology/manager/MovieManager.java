@@ -8,7 +8,16 @@ import ru.netology.domain.Movie;
 @Data
 public class MovieManager {
     private Movie[] movies = new Movie[0];
+    private int defaultCount = 10;
     private int count;
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public MovieManager(int count) {
+        this.count = count;
+    }
 
     public void addMovie(Movie movie) {
         int length = movies.length + 1;
@@ -21,14 +30,14 @@ public class MovieManager {
 
     public Movie[] getAll() {
         Movie[] result = new Movie[0];
-        if (count == 0 && movies.length < 10) {
+        if (count == 0 && movies.length <= defaultCount) {
             result = new Movie[movies.length];
             for (int i = 0; i < result.length; i++) {
                 int index = movies.length - i - 1;
                 result[i] = movies[index];
             }
         }
-        if (count == 0 && movies.length >= 10) {
+        if (count == 0 && movies.length >= defaultCount) {
             result = new Movie[10];
             for (int i = 0; i < result.length; i++) {
                 int index = movies.length - i - 1;
