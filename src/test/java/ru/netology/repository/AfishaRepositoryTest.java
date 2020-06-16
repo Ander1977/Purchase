@@ -55,12 +55,20 @@ class AfishaRepositoryTest {
 
     @Test
     void shouldFindById() {
-        int idToFind = 2;
-        repository.findById(idToFind);
-        Movie actual = repository.findById(idToFind);
-        Movie expected = second;
-        assertEquals(expected, actual);
+        int idToFind = 3;
+        Movie[] actual = repository.findById(idToFind);
+        Movie[] expected = new Movie[]{third};
+        assertArrayEquals(expected, actual);
     }
+    @Test
+    void shouldNotFindById() {
+        int idToFind = 5;
+        Movie[] actual = repository.findById(idToFind);
+        Movie[] expected = new Movie[0];
+        assertArrayEquals(expected, actual);
+    }
+
+
 }
 
 

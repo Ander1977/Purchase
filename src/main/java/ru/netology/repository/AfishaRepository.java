@@ -17,13 +17,17 @@ public class AfishaRepository {
         movies = tmp;
     }
 
-    public Movie findById(int id) {
+    public Movie[] findById(int id) {
+        Movie[] findMove = new Movie[0];
+        int index = 0;
         for (Movie movie : movies) {
             if (movie.getId() == id) {
-                return movie;
+                findMove = new Movie[1];
+                findMove[index] = movie;
+                index++;
             }
         }
-        return null;
+        return findMove;
     }
 
     public void removeById(int id) {
